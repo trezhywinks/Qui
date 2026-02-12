@@ -9,9 +9,7 @@ const User = require('./User');
 const app = express();
 app.use(express.json());
 
-app.use(cors({
-  origin: '*'
-}));
+app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB conectado'))
