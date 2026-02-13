@@ -127,7 +127,7 @@ app.post("/profile", async (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  res.redirect("/register.html");
+  res.sendFile(path.join(__dirname, "register.html"));
 });
 
 app.get("/profile/:id", async (req, res) => {
