@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro - Painel Rosé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #ff4b5c;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #e84350;
+  }
+  
+  a {
+    font-size: 14px;
+  }
+  
+  </style>
+<body>
+
+<div class="container">
+  <h2>Criar Conta</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Senha">
+  <button onclick="register()">Cadastrar</button>
+
+  <p id="message"></p>
+
+  <a href="login.html">Já tenho conta</a>
+</div>
+
+<script>
+async function register() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  const response = await fetch('/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    document.getElementById('message').innerText = data.message;
+    return;
+  }
+
+  alert("Conta criada com sucesso!");
+  window.location.href = 'login.html';
+}
+</script>
+
+</body>
+</html>
