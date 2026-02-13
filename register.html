@@ -2,11 +2,11 @@
 <html>
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cadastro - Painel Rosé</title>
-  <link rel="stylesheet" href="style.css">
+ <title>Cadastro - Painel Rosé</title>
+ <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    body {
+  body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
@@ -46,8 +46,7 @@
   a {
     font-size: 14px;
   }
-  
-  </style>
+</style>
 <body>
 
 <div class="container">
@@ -64,24 +63,35 @@
 
 <script>
 async function register() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-  const response = await fetch('/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    document.getElementById('message').innerText = data.message;
+  if (!username || !password) {
+    alert("Por favor, preencha todos os campos!");
     return;
   }
 
-  alert("Conta criada com sucesso!");
-  window.location.href = 'login.html';
+  try {
+    const response = await fetch('/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message || "Erro ao criar conta!");
+      return;
+    }
+
+    alert("Conta criada com sucesso!");
+    window.location.href = 'login.html';
+
+  } catch (error) {
+    alert("Não foi possível conectar ao servidor. Tente novamente mais tarde.");
+    console.error("Erro no register:", error);
+  }
 }
 </script>
 
