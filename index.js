@@ -1,9 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const cors = require('cors');
+
 
 const app = express();
 const port = 4040;
+app.use(cors());
+
 
 const MONGO_URI = "mongodb+srv://trezhy:lWn7NInsHxJtoOG5@cluster0.oedzme4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
