@@ -12,7 +12,6 @@ app.use(cors());
 const MONGO_URI = "mongodb+srv://trezhy:lWn7NInsHxJtoOG5@cluster0.oedzme4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const BASE_URL = "http://localhost:4040";
-app.use(express.static("public"));
 app.use(express.json({ limit: "15mb" }));
 
 mongoose.connect(MONGO_URI)
@@ -44,10 +43,6 @@ const Profile = mongoose.model("Profile", profileSchema);
 // 🔐 REGISTRAR USUÁRIO
 // ==================================================
 // Registro
-
-app.get("/register", (req, res) => {
-  res.redirect("/register.html");
-});
 
 app.post("/register", async (req, res) => {
   try {
@@ -131,6 +126,9 @@ app.post("/profile", async (req, res) => {
   }
 });
 
+app.get("/register", (req, res) => {
+  res.redirect("/register.html");
+});
 
 app.get("/profile/:id", async (req, res) => {
   try {
