@@ -1,99 +1,427 @@
-<!DOCTYPE html>
 <html>
+<!--
+1d2328
+ font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+-->
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Cadastro - Painel Rosé</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="description" content="TryZhy é uma experiência interativa para curiosos.">
+  <meta name="author" content="curioso, why not?">
+  <meta name="keywords" content="FourDeep, projeto, curioso, interativo, experimento">
+
+  <meta property="og:title" content="FourDeep">
+  <meta property="og:description" content="FourDeepé uma experiência interativa para curiosos.">
+  <meta property="og:image" content="https://trezhy.onrender.com/imagens/681ac031c1975c16753b18bf.png">
+  <meta property="og:url" content="https://nano.com">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="nay_cat.gif" type="image/x-icon">
+
+  <link rel="stylesheet" href="trezhy.css">
+  <title>FourDeep</title>
 </head>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  input {
+body{
+background: #000000;
+color:#c9d1d9; font-size:17px;
+font-weight: 500;
+}
+
+@media(max-width:999px){
+  .login{
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
   }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background: #ff4b5c;
-    border: none;
-    color: white;
-    cursor: pointer;
+  .desktop{
+    display: block;
+    background: transparent;
+    box-shadow: none;
+    width:90%;
   }
-  
-  button:hover {
-    background: #e84350;
-  }
-  
-  a {
-    font-size: 14px;
-  }
-</style>
-<body>
-
-<div class="container">
-  <h2>Criar Conta</h2>
-
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Senha">
-  <button onclick="register()">Cadastrar</button>
-
-  <p id="message"></p>
-
-  <a href="login.html">Já tenho conta</a>
-</div>
-
-<script>
-async function register() {
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
-
-  if (!username || !password) {
-    alert("Por favor, preencha todos os campos!");
-    return;
-  }
-
-  try {
-    const response = await fetch('https://kiki-trezhywinks.onrender.com/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      alert(data.message || "Erro ao criar conta!");
-      return;
-    }
-
-    alert("Conta criada com sucesso!");
-    window.location.href = 'login.html';
-
-  } catch (error) {
-    alert("Não foi possível conectar ao servidor. Tente novamente mais tarde.");
-    console.error("Erro no register:", error);
+  .left{
+    display: none;
   }
 }
-</script>
 
+.pain{
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  height:40vh;
+  background:;
+  overflow: hidden;
+}
+</style>
+<body>
+<br>
+<div class="desktop">
+<div class="left">
+<div class="mkima">
+<h2 style="font-size: 40px; font-weight: 400;  margin-left: 20px;">Website Tryzhy <span style="color:#3193e4;">Winks</span></h2>
+<img src="ebf3058849bd022783acf7619631726a.gif" width="450" style="border-radius: 20px; margin: 10px;"/><br>
+<h4>Clique na iana para selecionar uma imagem da sua galeria.<br> Deixe seu perfil perfeito para todos curtirem.</h4>
+<br>
+</div>
+</div>
+<div class="server">
+  <div class="hanime">
+    <style>
+      .hanime{
+        display: inline;
+      }
+      @media(max-width:999px){
+        .hanime{display: inline;}
+      }
+      
+      .sif{
+        display: flex;
+        justify-content: center;
+      }
+      
+      #myfiles{
+        margin-top: 6px;
+        margin-left: -7px;
+      }
+    </style>
+    <img src="https://raw.githubusercontent.com/trezhywinks/Winks/refs/heads/main/IMG_4994.jpeg" style="margin-top: -40px; border: 5px solid #101010;" id="gin" width="90" height="90"/>
+    <!--img src="./IMG_0871.jpeg" id="gin" style="border-radius: 100px; margin: 10px; width: 70px; height: 70px;"-->
+    <br>
+    <div class="sif">
+      <div class="op">
+    <h4 class="h4" style="display: flex;">Bem-vindo ao FourDeep</h4></div>
+    <div class="op" id="myfiles"></div>
+    </div>
+  </div>
+<form id="loginForm">
+  <div class="pain">
+<div class="login">
+<div class="lab"><label id="nick">Nickname</label></div>
+<div class="input" id="lip">
+<input type="text" id="user" name="username"/>
+</div>
+<br>
+<div class="lab">
+<div class="lib">
+<div class="kl_o">
+<label id="lo_o">Senha</label>
+</div><div class="kl_o">
+<p class="cli">Ver</p></div>
+</div>
+</div>
+<div class="input" id="ok_o">
+<div class="screen">
+<input type="password" name="password" id="pass"/>
+<script>
+const ok_o = document.getElementById('pass');
+const lo_o = document.getElementById('lo_o');
+const nick = document.getElementById('nick');
+const user = document.getElementById('user');
+
+if (ok_o && lo_o) {
+  ok_o.addEventListener('focus', () => {
+    lo_o.style.color = '#3193e4';
+  });
+
+  ok_o.addEventListener('blur', () => {
+    lo_o.style.color = 'white';
+  });
+
+}
+
+if (nick && user) {
+  user.addEventListener('focus', () => {
+    nick.style.color = '#3193e4';
+  });
+
+  user.addEventListener('blur', () => {
+    nick.style.color = 'white';
+  });
+
+}
+
+</script>
+</div>
+<script>
+document.querySelector('.cli').addEventListener('click', () => {
+const pass = document.getElementById('pass');
+const cli = document.querySelector('.cli');
+if (pass.type === "password"){
+pass.type = "text";
+cli.innerText = "Esconder"
+} else {
+pass.type = "password";
+cli.innerText = "Ver"
+
+console.log("ta procurando oq cz?");
+}
+});
+</script>
+</div>
+<a href="#" style="color:#3193e4; font-size: 13px;">Esqueci a minha senha</a>
+<br><br>
+<div class="input">
+<style>button{width:100%; background: #2c974b; color: #fff; border:none; font-size: 17px;}</style>
+<button type="submit">Entrar</button>
+</div>
+</div>
+    <script>
+
+</script>
+</form>
+<div class="create">
+<form id="registerForm" enctype="multipart/form-data">
+  <input type="file" name="image" id="file" style="display: none;"/>
+    <label for="file">
+  <div class="input" style="text-align: center;">
+    <span style="margin: 10px; color: #3193e4;">Selecione uma foto</span>
+  </div>
+  </label>
+  <style>
+  .login{}
+    .create{
+      background: #000;
+      border-radius: 20px;
+      width:100%;
+      padding: 10px;
+      display: none;
+      margin: 0 auto 10px;
+      transform: translateY(-450px);
+      transition: 0.5s;
+      animation: --login 0.5s ease-in;
+    }
+    
+    .create.ativo{
+      transform: translateY(0px);
+      transition: 0.5s;
+      display:block;
+    }
+    
+    @keyframes --login{
+ from{transform: translateY(230px);}
+ to{transform: translateY(0px);}
+}
+    
+    @keyframes --opa{
+      from{opacity:0; transform: translateX(450px);}
+      to{opacity: 1; transform: translateX(0px);}
+    }
+  </style>
+  <div class="lab"><label id="nick">Nickname</label></div>
+  <div class="input">
+   <input type="text" name="username" id="nicks">
+   <label for="emoji">
+     <input type="file" style="display: none;" id="emoji">
+   <div style="margin: 2px; margin-left: -50px;">
+     <!--img src="./IMG_0869.png" width="40"--></div>
+   </label>
+   <script>
+        document.getElementById('emoji').addEventListener('change', function(event) {
+      const emoji = document.getElementById('emoji').value;
+     // const gin = document.getElementById('gin');
+      const vaitomando = document.getElementById('myfiles');
+      let file = event.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+          //console.log(e.target.result);
+          vaitomando.innerHTML = `<img src="${e.target.result}" width="25" height="25"/>`;
+          //gin.src = e.target.result;
+          console.log(file);
+        }
+        reader.readAsDataURL(file);
+      }
+    }) 
+   </script>
+  </div>
+  <div class="lab"><label id="nick">Sua senha</label></div>
+    <div class="input">
+    <input type="password" name="password" id="pass">
+  </div>
+    <script>
+    document.getElementById('file').addEventListener('change', function(event) {
+      const filed = document.getElementById('file').value;
+      const gin = document.getElementById('gin');
+      let file = event.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+          console.log(e.target.result);
+          gin.src = e.target.result;
+          console.log(file);
+        }
+        reader.readAsDataURL(file);
+      }
+    })
+    
+    document.getElementById('nicks').addEventListener('input', function(event) {
+    const nicki = document.querySelector('.h4');
+const int = document.getElementById('nicks').value; if (int) {
+  nicki.innerText = int;
+}
+    });
+  </script>
+  <div hidden class="lab" style="display: none;" id="cate"><label for="dop" id="nick">Categoria</label>
+  <div class="select">
+    <select id="dop" name="category" required>
+    <option value="">Hacker</option>
+    <option value="">Desenvolvedor</option>
+    <option value="">Estelionatario</option>
+    <option value="">Investigador</option>
+    <option value="">Paneleiro</option>
+    <option value="">Programador</option>
+    <option value="">Polícia Federal</option>
+    </select>
+  </div>
+  </div>
+  <div class="input">
+<style>.button{width:100%; background: #3193e4; color: #fff; border:none; font-size: 17px;}</style>
+<button class="button" type="submit">Criar conta</button>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  
+  const form = document.getElementById("registerForm");
+
+  if (!form) return; // evita erro se não existir
+  
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
+    try {
+      const response = await fetch('https://qui-a2sw.onrender.com/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, password })
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        window.location.href = result.redirect;
+       // window.location.href = "https://google.com";
+      } else {
+        alert(result.error || "Erro");
+      }
+      
+    } catch (err) {
+      alert("Erro de conexão");
+    }
+  });
+  
+});  
+
+</script>
+</form>
+</div>
+<div class="signup">
+<style>
+.signup{border-radius: 10px; width: 370px; padding: 10px;
+transition: 0.5s;
+}
+
+@media(max-width:999px){
+  .signup{
+    width:100%;
+  }
+}
+.entrar{
+  display: none;
+  animation: --sing 0.5s ease-out;
+  transition: 0.5s;
+}
+
+@keyframes --sing{
+  from{transform: translateX(-20px); opacity: 0.6;}
+  to{transform: translateX(0px); opacity: 1;}
+}
+</style>
+<div class="entrar">
+  <h3 style="margin: 10px; color: #3193e4;">Entrar na minha conta</h3>
+<p style="font-size: 14px;">Já tenho uma conta</p>
+<span style="font-size: 13px; color:#3193e4;">clique aqui para entrar na sua conta.</span>
+</div>
+<div class="criar">
+<h3 style="margin: 10px; color: #3193e4;">Criar uma conta</h3>
+<p style="font-size: 14px;">Não tem uma conta ainda?</p>
+<span style="font-size: 13px; color:#3193e4;">clique aqui para criar uma conta no server.</span>
+</div>
+</div>
+</div>
+    <script>
+    const create = document.querySelector('.create');
+const lop = document.querySelector('.login');
+const h4 = document.querySelector('.h4');
+const rem = document.querySelector('.criar');
+const sing = document.querySelector('.entrar');
+
+    document.querySelector('.criar').addEventListener('click', () => {
+        h4.style.opacity = "0.6";
+        h4.innerText = "Nickname";
+  //create.style.transform = "translateY(-390px)";
+  //  create.style.transition = "0.5s";
+  //lop.style.transform = "translateY(0px)";
+  lop.style.transition = "2s";
+  rem.style.display = "none";
+  //setTimeout(remov, 400);
+  sing.style.display = "inline";
+      create.classList.toggle("ativo");
+      lop.classList.toggle("ativo");
+    });
+
+document.querySelector('.entrar').addEventListener('click', () => {
+  //setTimeout(black, 600)
+  h4.style.opacity = "0.6";
+  h4.innerText = "Bem-vindo ao FourDeep";
+  //create.style.transform = "translateY(-390px)";
+//  create.style.transition = "0.5s";
+  //lop.style.transform = "translateY(0px)";
+  lop.style.transition = "2s";
+   rem.style.display = "inline";
+ // setTimeout(remov, 400);
+  sing.style.display = "none";
+  lop.classList.toggle("ativo");
+  create.classList.toggle("ativo");
+
+  //lop.style.display = "inline"
+
+});
+    
+
+    
+    function remov(){
+      document.querySelector('.entrar').style.display = "inline";
+      
+      const tyx = document.querySelector('.criar');
+      tyx.style.opacity = 0;
+      tyx.style.transition = "0.7s";
+      setTimeout(60000);
+      tyx.style.display = "none";
+    }
+  
+    function log(){
+      document.querySelector('.login').style.display = "none";
+    }
+    
+    function loge() {
+  document.querySelector('.login').style.display = "inline";
+}
+
+    function black(){
+    document.querySelector('.create').style.display = "block";
+    }
+    function blackl() {
+  document.querySelector('.create').style.display = "none";
+}
+  </script>
+  <script>
+</script>
+<script src="main_java_cat.js"></script>
+</div>
 </body>
 </html>
