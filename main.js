@@ -13,7 +13,7 @@ app.use(express.static('./server'));
 
 app.get('/u', (req, res) => {
 app.use(express.static(path.join(__dirname, 'u')));
-res.sendFile(path.join(__dirname, 'u','index.html'));
+res.sendFile(path.join(__dirname, 'register.html'));
 })
 
 app.listen(port, () => {
