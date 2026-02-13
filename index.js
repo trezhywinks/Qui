@@ -12,7 +12,7 @@ app.use(cors());
 const MONGO_URI = "mongodb+srv://trezhy:lWn7NInsHxJtoOG5@cluster0.oedzme4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const BASE_URL = "http://localhost:4040";
-
+app.use(express.static("public"));
 app.use(express.json({ limit: "15mb" }));
 
 mongoose.connect(MONGO_URI)
