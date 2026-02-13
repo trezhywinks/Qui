@@ -44,6 +44,11 @@ const Profile = mongoose.model("Profile", profileSchema);
 // 🔐 REGISTRAR USUÁRIO
 // ==================================================
 // Registro
+
+app.get("/register", (req, res) => {
+  res.redirect("/register.html");
+});
+
 app.post("/register", async (req, res) => {
   try {
     const { name, password } = req.body;
