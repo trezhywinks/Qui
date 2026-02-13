@@ -72,7 +72,7 @@ async function register() {
   }
 
   try {
-    const response = await fetch('/register', {
+    const response = await fetch('https://kiki-trezhywinks.onrender.com/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
