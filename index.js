@@ -43,47 +43,53 @@ const Profile = mongoose.model("Profile", profileSchema);
 // ==================================================
 // 🔐 REGISTRAR USUÁRIO
 // ==================================================
+// Registro
 app.post("/register", async (req, res) => {
   try {
     const { name, password } = req.body;
-    
+
     if (!name || !password)
       return res.status(400).json({ error: "Preencha todos os campos" });
-    
+
     const hashedPassword = await bcrypt.hash(password, 10);
-    
+
     const newUser = new User({
       name,
       password: hashedPassword
     });
-    
+
     await newUser.save();
-    
-    res.json({ message: "Usuário criado com sucesso" });
-    
+
+    // Envia mensagem e link de redirect
+    res.json({
+      message: "Usuário criado com sucesso",
+      redirect: "https://exemplo.com/boas-vindas"
+    });
+
   } catch (err) {
     res.status(500).json({ error: "Erro ao registrar usuário" });
   }
 });
 
 
-// ==================================================
-// 🔐 LOGIN
-// ==================================================
+// Login
 app.post("/login", async (req, res) => {
   try {
     const { name, password } = req.body;
-    
+
     const user = await User.findOne({ name });
     if (!user)
       return res.status(404).json({ error: "Usuário não encontrado" });
-    
+
     const valid = await bcrypt.compare(password, user.password);
     if (!valid)
       return res.status(401).json({ error: "Senha incorreta" });
-    
-    res.json({ message: "Login realizado com sucesso" });
-    
+
+    res.json({
+      message: "Login realizado com sucesso",
+      redirect: "https://exemplo.com/painel"
+    });
+
   } catch (err) {
     res.status(500).json({ error: "Erro no login" });
   }
