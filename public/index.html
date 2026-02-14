@@ -209,34 +209,11 @@ console.log("ta procurando oq cz?");
   <div class="lab"><label id="nick">Nickname</label></div>
   <div class="input">
    <input type="text" name="username" id="nicks">
-   <label for="emoji">
-     <input type="file" style="display: none;" id="emoji">
-   <div style="margin: 2px; margin-left: -50px;">
-     <!--img src="./IMG_0869.png" width="40"--></div>
-   </label>
-   <script>
-        document.getElementById('emoji').addEventListener('change', function(event) {
-      const emoji = document.getElementById('emoji').value;
-     // const gin = document.getElementById('gin');
-      const vaitomando = document.getElementById('myfiles');
-      let file = event.target.files[0];
-      if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-          //console.log(e.target.result);
-          vaitomando.innerHTML = `<img src="${e.target.result}" width="25" height="25"/>`;
-          //gin.src = e.target.result;
-          console.log(file);
-        }
-        reader.readAsDataURL(file);
-      }
-    }) 
-   </script>
   </div>
   <div class="lab"><label id="nick">Sua senha</label></div>
     <div class="input">
-    <input type="password" name="password" id="pass">
-  </div>
+    <input type="password" name="password">
+</div>
     <script>
     document.getElementById('file').addEventListener('change', function(event) {
       const filed = document.getElementById('file').value;
